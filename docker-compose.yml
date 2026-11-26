@@ -1,0 +1,14 @@
+services:
+  triage-api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.example
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
